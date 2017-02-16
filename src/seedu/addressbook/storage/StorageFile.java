@@ -1,5 +1,6 @@
 package seedu.addressbook.storage;
 
+import seedu.addressbook.common.Messages;
 import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.exception.IllegalValueException;
 import seedu.addressbook.storage.jaxb.AdaptedAddressBook;
@@ -11,6 +12,7 @@ import javax.xml.bind.Unmarshaller;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -90,33 +92,49 @@ public class StorageFile {
      * Saves all data to this storage file.
      *
      * @throws StorageOperationException if there were errors converting and/or storing data to file.
+     * @throws FileNotFoundException 
      */
-    public void save(AddressBook addressBook) throws StorageOperationException {
+    public void save(AddressBook addressBook) throws StorageOperationException, FileNotFoundException {
 
         /* Note: Note the 'try with resource' statement below.
          * More info: https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
          */
         try (final Writer fileWriter =
                      new BufferedWriter(new FileWriter(path.toFile()))) {
-
+        	if(!checkIfFileExist()){
+        		throw new FileNotFoundException(Messages.MESSAGE_FILE_NOT_FOUND);
+        	}
+        	
             final AdaptedAddressBook toSave = new AdaptedAddressBook(addressBook);
             final Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             marshaller.marshal(toSave, fileWriter);
 
+        } catch (FileNotFoundException huiqi){
+        	throw new FileNotFoundException(Messages.MESSAGE_FILE_NOT_FOUND);
         } catch (IOException ioe) {
             throw new StorageOperationException("Error writing to file: " + path);
         } catch (JAXBException jaxbe) {
             throw new StorageOperationException("Error converting address book into storage format");
-        }
+        } 
     }
 
-    /**
+    
+	private boolean checkIfFileExist() {
+		File file = path.toFile();
+		if(!file.exists()){
+			return false;
+		}
+		return true;
+	}
+
+	/**
      * Loads data from this storage file.
      *
      * @throws StorageOperationException if there were errors reading and/or converting data from file.
+	 * @throws FileNotFoundException 
      */
-    public AddressBook load() throws StorageOperationException {
+    public AddressBook load() throws StorageOperationException, FileNotFoundException {
         try (final Reader fileReader =
                      new BufferedReader(new FileReader(path.toFile()))) {
 
@@ -152,5 +170,6 @@ public class StorageFile {
     public String getPath() {
         return path.toString();
     }
+
 
 }
