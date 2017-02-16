@@ -42,7 +42,7 @@ public class Address {
         this.street = new AddressStreet(splitTrimmedAddress[INDEX_STREET].trim());
         this.unit = new AddressUnit(splitTrimmedAddress[INDEX_UNIT].trim());
         this.postalCode = new AddressPostalCode(splitTrimmedAddress[INDEX_POSTALCODE].trim());        
-        this.value = this.block + " " + this.street + " " + this.unit + " " + this.postalCode;
+        this.value = this.block + ", " + this.street + ", " + this.unit + ", " + this.postalCode;
     }
 
     /**
