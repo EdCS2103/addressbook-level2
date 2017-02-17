@@ -4,6 +4,7 @@ import static seedu.addressbook.common.Messages.*;
 
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.data.person.ReadOnlyPerson;
+import seedu.addressbook.data.person.Printable;
 
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -165,4 +166,11 @@ public class TextUi {
         return String.format(MESSAGE_INDEXED_LIST_ITEM, visibleIndex, listItem);
     }
 
+    String getPrintableString(Printable... printables){
+    	String result = "";
+    	for(Printable printable : printables){
+    		result += printable.getPrintableString() + ", ";
+    	}
+    	return result = result.trim();
+    }
 }
