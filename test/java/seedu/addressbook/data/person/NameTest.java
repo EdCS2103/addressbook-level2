@@ -16,9 +16,12 @@ public class NameTest {
 		Name handsome = new Name("henry");
 		Name pretty = new Name("chia");
 		Name handsome2 = new Name("henry");
+		Name diffCase = new Name("HenRy");
+		
 		assertFalse(handsome.isSimilar(pretty));
 		assertTrue(handsome.isSimilar(handsome));
 		assertTrue(handsome.isSimilar(handsome2));
+		assertTrue(handsome.isSimilar(diffCase));
 	}
 
 }

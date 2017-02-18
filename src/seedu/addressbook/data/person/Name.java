@@ -59,7 +59,11 @@ public class Name {
     public int hashCode() {
         return fullName.hashCode();
     }
-
+/**
+ *Returns true of the other name is very similar to this name.
+ *Two names are considered similar if two names are the same,
+ *Regardless of their case
+ */
 	public boolean isSimilar(Name other) {
 		return this.fullName == other.fullName;
 	}
