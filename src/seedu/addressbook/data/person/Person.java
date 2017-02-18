@@ -1,4 +1,4 @@
-package seedu.addressbook.data.person;
+	package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.tag.UniqueTagList;
 
@@ -10,7 +10,7 @@ import java.util.Objects;
  */
 public class Person implements ReadOnlyPerson {
 
-	public static int nextSequenceNumber=0;
+	private static int nextSequenceNumber=0;
 	private int sequenceNumber;
 	
     private Name name;
