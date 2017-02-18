@@ -60,7 +60,7 @@ public class Name {
         return fullName.hashCode();
     }
 
-	public boolean isSimilar(Name pretty) {
+	public boolean isSimilar(Name other) {
 		return false;
 	}
 
