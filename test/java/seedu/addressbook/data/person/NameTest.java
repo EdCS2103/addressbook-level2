@@ -16,7 +16,7 @@ public class NameTest {
 		Name handsome = new Name("henry");
 		Name pretty = new Name("chia");
 		assertFalse(handsome.isSimilar(pretty));
-		assertTrue(handsome.isSimilar(pretty));
+		assertTrue(handsome.isSimilar(handsome));
 	}
 
 }
