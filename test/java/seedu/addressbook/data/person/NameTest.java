@@ -10,7 +10,7 @@ public class NameTest {
  */
 	@Test
 	public void testIsSimilar(){
-		fail("Not yet implemented");
+
 	}
 
 }
