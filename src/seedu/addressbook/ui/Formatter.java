@@ -6,9 +6,6 @@ import seedu.addressbook.Main;
 import seedu.addressbook.commands.CommandResult;
 
 public class Formatter {
-	Formatter() {
-	}
-
 	/**
 	 * A decorative prefix added to the beginning of lines printed by
 	 * AddressBook
@@ -25,12 +22,15 @@ public class Formatter {
 
 	/** Offset required to convert between 1-indexing and 0-indexing. */
 	public static final int DISPLAYED_INDEX_OFFSET = 1;
-
+	
+	private static final String COMMENT_LINE_FORMAT_REGEX = "#.*";
 	/**
 	 * Format of a comment input line. Comment lines are silently consumed when
 	 * reading user input.
 	 */
-	private static final String COMMENT_LINE_FORMAT_REGEX = "#.*";
+	
+	Formatter() {
+	}
 
 	public static String getUserCommandFormat() {
 		return LINE_PREFIX + "Enter command: ";
@@ -40,7 +40,7 @@ public class Formatter {
 		return rawInputLine.trim().matches(COMMENT_LINE_FORMAT_REGEX);
 	}
 
-	public static String WelComeMessageFormat(String storageFileInfo) {
+	public static String welcomeMessageFormat(String storageFileInfo) {
 		return showToUser(DIVIDER, DIVIDER, MESSAGE_WELCOME, Main.VERSION, MESSAGE_PROGRAM_LAUNCH_ARGS_USAGE,
 				storageFileInfo, DIVIDER);
 	}
