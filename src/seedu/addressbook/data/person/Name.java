@@ -63,9 +63,11 @@ public class Name {
  *Returns true of the other name is very similar to this name.
  *Two names are considered similar if two names are the same,
  *Regardless of their case
+ *Regardless of whether it is subset/superset
  */
 	public boolean isSimilar(Name other) {
-		return this.fullName.toLowerCase().equals(other.fullName.toLowerCase());
+		return this.fullName.toLowerCase().contains(other.fullName.toLowerCase()) 
+				|| other.fullName.toLowerCase().contains(this.fullName.toLowerCase());
 	}
 
 }

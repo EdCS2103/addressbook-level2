@@ -17,11 +17,14 @@ public class NameTest {
 		Name pretty = new Name("chia");
 		Name handsome2 = new Name("henry");
 		Name diffCase = new Name("HenRy");
+		Name superset = new Name("Henry Cheese");
 		
 		assertFalse(handsome.isSimilar(pretty));
 		assertTrue(handsome.isSimilar(handsome));
 		assertTrue(handsome.isSimilar(handsome2));
+		
 		assertTrue(handsome.isSimilar(diffCase));
+		assertTrue(handsome.isSimilar(superset));
 	}
 
 }
