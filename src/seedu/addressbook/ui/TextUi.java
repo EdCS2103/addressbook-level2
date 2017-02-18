@@ -166,7 +166,7 @@ public class TextUi {
         return String.format(MESSAGE_INDEXED_LIST_ITEM, visibleIndex, listItem);
     }
 
-    String getPrintableString(Printable... printables){
+    public static String getPrintableString(Printable... printables){
     	String result = "";
     	for(Printable printable : printables){
     		result += printable.getPrintableString() + ", ";
