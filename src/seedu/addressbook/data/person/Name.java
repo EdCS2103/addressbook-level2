@@ -66,6 +66,7 @@ public class Name {
  *Regardless of whether it is subset/superset
  */
 	public boolean isSimilar(Name other) {
+
 		return this.fullName.toLowerCase().contains(other.fullName.toLowerCase()) 
 				|| other.fullName.toLowerCase().contains(this.fullName.toLowerCase());
 	}

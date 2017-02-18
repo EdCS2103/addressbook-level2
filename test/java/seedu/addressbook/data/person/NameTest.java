@@ -18,6 +18,7 @@ public class NameTest {
 		Name handsome2 = new Name("henry");
 		Name diffCase = new Name("HenRy");
 		Name superset = new Name("Henry Cheese");
+		Name nullset = null;
 		
 		assertFalse(handsome.isSimilar(pretty));
 		assertTrue(handsome.isSimilar(handsome));
@@ -25,6 +26,7 @@ public class NameTest {
 		
 		assertTrue(handsome.isSimilar(diffCase));
 		assertTrue(handsome.isSimilar(superset));
+		assertFalse(handsome.isSimilar(nullset));
 	}
 
 }
