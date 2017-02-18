@@ -64,6 +64,7 @@ public class Name {
  *Two names are considered similar if two names are the same,
  *Regardless of their case
  *Regardless of whether it is subset/superset
+ *Regardless of their order
  */
 	public boolean isSimilar(Name other) {
 		if(other==null){
